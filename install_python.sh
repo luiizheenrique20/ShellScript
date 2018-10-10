@@ -22,27 +22,3 @@ fi
 
 done
 
-# #!/bin/bash
-#
-# IFS=$'\n'
-#
-# for x in `cat hosts`
-# do
-#
-# echo $x
-# IP=`echo $x | awk '{print $1}'`
-# #CHAVE=`echo $x | awk -F"/" '{print $5}'`
-# USER=`echo $x | awk '{print $2}' | awk -F"=" '{print $2}'`
-# PEM=`echo $x | awk -F"/" '{print $7}'`
-# #exit 1
-#
-# if [ ${USER} = "ubuntu" ]
-# then
-# ssh -i /home/izack/claranet/pem/claranet/${PEM} $USER@$IP "sudo apt install python python-pip -y"
-#
-# else
-#
-# ssh -i /home/izack/claranet/pem/claranet/${PEM} $USER@$IP "sudo yum install python python-pip -y"
-# fi
-#
-# done
