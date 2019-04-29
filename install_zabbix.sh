@@ -12,11 +12,11 @@ PEM=`echo $x | awk -F"/" '{print $3}'`
 
 if [ ${USER} = "ubuntu" ]
 then
-ssh -i /home/luizhossi/pem/${PEM} -o StrictHostKeyChecking=no $USER@$IP "sudo apt install python python-pip -y"
+ssh -i /home/luizhossi/pem/${PEM} -o StrictHostKeyChecking=no $USER@$IP "sudo apt zabbix-agent -y"
 
 else
 
-ssh -i /home/luizhossi/pem/${PEM} -o StrictHostKeyChecking=no $USER@$IP "sudo yum install python python-pip -y"
+ssh -i /home/luizhossi/pem/${PEM} -o StrictHostKeyChecking=no $USER@$IP "sudo yum install zabbix-agent -y"
 fi
 
-done 
+done
