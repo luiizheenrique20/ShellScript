@@ -5,7 +5,7 @@ if [ "$UID" -ne 0 ]; then
   exit 1
 fi
 
-# Only run it if we can (ie. on Ubuntu/Debian)
+#   
 if [ -x /usr/bin/apt-get ]; then
   dist=`cat -n /etc/lsb-release | grep -n ^ | grep ^3: | cut -d: -f2 | awk -F"=" '{ print $2 }'`
   wget https://repo.zabbix.com/zabbix/4.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_4.2-1+$dist"_all.deb"
