@@ -3,13 +3,14 @@ import boto3
 region = 'us-east-1'
 ec2 = boto3.client('ec2', region_name=region)
 
-instances_start = []
-instances_stop = []
 
 def lambda_handler(event, context):
-    if event['start']:
+    instances_start = []
+    instances_stop = []
+    
+    if event.get('start'):
         instances_start = event['start']
-    if event['stop']:
+    if event.get('stop'):
         instances_stop = event['stop']    
     
     if instances_start:
@@ -27,4 +28,3 @@ def lambda_handler(event, context):
         except Exception as e:
             print('erro stop instances: ' + str(instances_stop))
             print (e)
-

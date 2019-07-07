@@ -3,13 +3,13 @@ region = 'us-east-1'
 
 rds = boto3.client('rds', region_name=region)
 
-instances_start = []
-instances_stop = []
-
 def lambda_handler(event, context):
-    if event['start']:
+    instances_start = []
+    instances_stop = []
+    
+    if event.get('start'):
         instances_start = event['start']
-    if event['stop']:
+    if event.get('stop'):
         instances_stop = event['stop']    
     
     for instance in instances_start:
@@ -27,5 +27,4 @@ def lambda_handler(event, context):
         except Exception as e:
             print('erro stop instances: ' + str(instance))
             print (e)
-
 
